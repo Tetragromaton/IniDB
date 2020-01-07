@@ -26,5 +26,3 @@ if(INIDB_TakeDataInt("", "FruitBin", "Apples", client) > 0)
 {
 //Do something if player has more than 0 apples in FrutBin package.
 }else INIDB_InsertDataInt("", "FruitBin", "Apples", 333, client);//This will set 333 apples on client.
-
- m
