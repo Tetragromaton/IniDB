@@ -31,3 +31,6 @@ if(INIDB_TakeDataInt("", "FruitBin", "Apples", client) > 0)<br>
 {<br>
 //Do something if player has more than 0 apples in FrutBin package.<br>
 }else INIDB_InsertDataInt("", "FruitBin", "Apples", 333, client);//This will set 333 apples on client.<br>
+
+<h3>Todo's</h3><br>
+1)Do plugin runtime modes (1 - Do not register new user accounts ini files, 2 - default, register all the players and etc.)
