@@ -1,7 +1,6 @@
 # IniDB<br>
-Save data of players or something other .INI files. Made for Sourcemod<br>
-This is a scripting addition for your plugins, save/read data in a few strings !.<br>
-<b>WARNING ! I DO NOT CARE IF SOMETHING WENT WRONG WHILE SAVING ANY SENSETIVE DATA ON YOUR SIDE. Use at your own risk !</b><br>
+This is a scripting addition for your plugins, save/read data that you want just in a few strings !.<br>
+<b>DISCLAIMER ! I DO NOT CARE IF SOMETHING WENT WRONG WHILE SAVING ANY SENSETIVE DATA ON YOUR SIDE. Use at your own risk !</b><br>
 <br>ᅠ
 <br>
 Installation:<br>
