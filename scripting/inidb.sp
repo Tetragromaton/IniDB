@@ -20,6 +20,7 @@ public Plugin myinfo =
 };
 //Зачем удалять код, когда его можно закомментить ?)
 //Говно код залог успеха ! :)
+ConVar RuntimeModeCV;
 public APLRes AskPluginLoad2(Handle hMyself, bool bLate, char[] sError, int iErr_max)
 {
 	CreateNative("INIDB_TakeData", Native_TakeData);
@@ -157,9 +158,12 @@ public void OnPluginStart()
 	//RegAdminCmd("debugDB", DBTEST, ADMFLAG_ROOT);
 	//RegAdminCmd("takeVAL", DBTAKE, ADMFLAG_ROOT);
 	//RegAdminCmd("testDBnative", Tg, ADMFLAG_BAN);
+	RuntimeModeCV = CreateConVar("INIDB_RuntimeMode", "1");//1 - usual 2 - dont register player profiles, global file only.
+	//AutoExecConfig(true, "inidb");
 }
 public OnPluginEnd()
 {
+	//Unload safe.
 	ServerCommand("sm plugins load inidb");
 }
 public Action Tg(client, args)
@@ -251,7 +255,7 @@ stock TakeData(const char[] sid, const char[] packed, const char[] variable, Str
 }
 public void AutoDelete(Handle thing)
 {
-	if(thing != INVALID_HANDLE)CloseHandle(thing);
+	//if(thing != INVALID_HANDLE)CloseHandle(thing);
 }
 bool InsertData(const char[] sid, const char[] packed, const char[] variable, const char[] value, int client = -1)
 {
@@ -291,6 +295,8 @@ public Action Command_CreateAccount(client, args)
 }
 public OnClientPutInServer(client)
 {
+	if(GetConVarInt(RuntimeModeCV) != 2)
+	{
 	char sid[255];
 	GetClientAuthId(client, AuthId_Steam2, sid, sizeof(sid));
 	if (StrContains(sid, "STOP_IGNORING_RETVALS", false) != -1)
@@ -300,6 +306,7 @@ public OnClientPutInServer(client)
 		{
 			
 		}
+	}
 	}
 }
 
